@@ -7,3 +7,5 @@ __pycache__/
 wheels/
 operator - Copy.db
 .DS_Store
+
+operator.db
