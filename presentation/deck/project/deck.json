@@ -1,0 +1,71 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-09-24T09:30:00Z"
+  },
+  "title": "CAT Operator Assistant — Hackathon Deck",
+  "cover": "cover",
+  "order": [
+    "cover",
+    "problem",
+    "solution",
+    "hmi",
+    "safety",
+    "tasktime",
+    "anomaly",
+    "loop",
+    "verify",
+    "supervisor",
+    "architecture",
+    "assistant",
+    "validation",
+    "scope",
+    "roadmap",
+    "b-deepdive",
+    "b-dataset",
+    "b-limits",
+    "b-demo"
+  ],
+  "sections": {
+    "s1": {
+      "description": "The problem and the one-loop solution",
+      "start": "cover"
+    },
+    "s2": {
+      "description": "The operator HMI: safety, task-time intelligence and unusual-behaviour evidence",
+      "start": "hmi"
+    },
+    "s3": {
+      "description": "The core novelty: a closed training loop with supervisor review and statistical verification",
+      "start": "loop"
+    },
+    "s4": {
+      "description": "Engineering: offline architecture, assistant and validation",
+      "start": "architecture"
+    },
+    "s5": {
+      "description": "Honest scope and the path to deployment",
+      "start": "scope"
+    },
+    "s6": {
+      "description": "Backup slides for technical questions and the live demo",
+      "start": "b-deepdive"
+    }
+  },
+  "faces": {
+    "barlow-condensed": {
+      "family": "Barlow Condensed",
+      "href": "https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&display=swap"
+    },
+    "ibm-plex-sans": {
+      "family": "IBM Plex Sans",
+      "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+    },
+    "ibm-plex-mono": {
+      "family": "IBM Plex Mono",
+      "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap"
+    }
+  },
+  "designSystems": []
+}

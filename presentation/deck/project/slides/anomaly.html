@@ -1,0 +1,43 @@
+<section id="anomaly" data-transition="fade" style="background:#111316; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:28px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">06 · UNUSUAL MACHINE BEHAVIOUR</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">Not just an anomaly score: evidence</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; align-items:center; gap:14px">
+    <div style="flex:1.25; background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px">
+      <h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">6 SIGNALS PER SESSION</h3>
+      <p style="font-size:24px; line-height:1.4; color:#D8D5CB">Idle share · fuel per working hour · cycles per hour · speed vs limit · max tilt · engine temp</p>
+    </div>
+    <x-shape kind="arrow-right" style="width:40px; height:20px; background:#FFCD11"></x-shape>
+    <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px">
+      <h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">ISOLATION FOREST</h3>
+      <p style="font-size:24px; line-height:1.4; color:#D8D5CB">Robust z-scores within machine type · 5% most isolated flagged</p>
+    </div>
+    <x-shape kind="arrow-right" style="width:40px; height:20px; background:#FFCD11"></x-shape>
+    <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px">
+      <h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">EVIDENCE</h3>
+      <p style="font-size:24px; line-height:1.4; color:#D8D5CB">Top signals vs operator and site baseline → recommendation</p>
+    </div>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:40px">
+    <img src="/_blob/2db3fb085cd064f75af0e9212b91b1c5" alt="App screenshot: evidence card 'Abnormal idle share' for a flagged EXC001 demolition session: idle share 59% vs operator baseline 19% and site baseline 13%, with context and a recommendation to shut down when waiting more than 5 minutes" style="width:980px; height:406px; object-fit:contain; border:1px solid #343A43; border-radius:12px">
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px">
+      <div style="display:flex; flex-direction:row; align-items:baseline; gap:16px"><p style="width:170px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">78</p><p style="font-size:24px; color:#A9B0BA">of 1,549 sessions flagged (5%)</p></div>
+      <div style="display:flex; flex-direction:row; align-items:baseline; gap:16px"><p style="width:170px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700; color:#FFCD11">80%</p><p style="font-size:24px; color:#A9B0BA">recall on injected idle/fuel anomalies (48/60)</p></div>
+      <div style="display:flex; flex-direction:row; align-items:baseline; gap:16px"><p style="width:170px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">61.5%</p><p style="font-size:24px; color:#A9B0BA">precision vs idle/fuel labels</p></div>
+      <div style="display:flex; flex-direction:row; align-items:baseline; gap:16px"><p style="width:170px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700; color:#F5A524">13.6%</p><p style="font-size:24px; color:#F5A524">recall on speed-only events: known limitation</p></div>
+      <p style="font-size:24px; line-height:1.4; color:#A9B0BA; border-top:1px solid #343A43; padding:12px 0px 0px 0px">Historical sessions, not live · synthetic labels</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">Strongest on idle/fuel anomalies; speed-only events remain a known limitation</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">07 / 15</p>
+  </div>
+  <aside>SAY (50 s): "For unusual machine usage we use an Isolation Forest. In simple words: it keeps splitting the data at random, and sessions that get isolated in very few splits are the strange ones. We feed it six signals per session, normalised within each machine type so an excavator isn't compared with a truck, and flag the 5% most unusual. But a score alone isn't useful to an operator, so every flagged session gets evidence: this session's idle share was 59%, versus 19% for this operator normally and 13% for the site, plus a recommendation. How good is it? Because our data is synthetic, we know where we injected anomalies: it catches 80% of the idle and fuel anomalies, with 61.5% precision. It's weak on speed-only spikes, 13.6%, and we say so."
+
+SAY IT EXACTLY: "80% recall on injected idle/fuel anomalies". Never "80% accuracy".
+
+KNOW: IsolationForest(contamination=0.05, random_state=0), 100 trees; robust z = (x − median) / (1.4826 × MAD) within machine type. Reason text = top 2 signals with |z| ≥ 2. Evidence table = top 3 signals by deviation from the site median (operator and site medians exclude the session itself). Runs once at startup on history; not live, not persisted, doesn't feed training. In-app "flags with a known cause 75.6%" is NOT precision. Known quirk: the one-line reason and the evidence ranking can highlight different signals.
+
+IF ASKED "Why not supervised?": "Real incidents are rarely labelled. Unsupervised plus evidence is the practical start; with labelled incidents you'd validate or move to supervised."</aside>
+</section>

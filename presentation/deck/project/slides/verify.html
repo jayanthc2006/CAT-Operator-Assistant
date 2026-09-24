@@ -1,0 +1,59 @@
+<section id="verify" data-transition="fade" style="background:#111316; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">08 · HOW WE VERIFY TRAINING</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">We don't count training completion as success</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:48px">
+    <div style="width:720px; display:flex; flex-direction:column; gap:18px">
+      <div style="background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:20px 24px; display:flex; flex-direction:column; gap:6px">
+        <h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">Fisher exact test</h3>
+        <p style="font-size:24px; line-height:1.4">Did the share of sessions meeting the standard go up?</p>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#A9B0BA">one-sided · pass/fail counts, before vs after</p>
+      </div>
+      <div style="background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:20px 24px; display:flex; flex-direction:column; gap:6px">
+        <h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">Mann–Whitney U</h3>
+        <p style="font-size:24px; line-height:1.4">Did the key behaviour metric shift in the right direction?</p>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#A9B0BA">one-sided · e.g. idle share, unbuckled share</p>
+      </div>
+      <div style="background:#1F2329; border-left:6px solid #FFCD11; border-radius:12px; padding:20px 24px">
+        <ul style="font-size:24px; line-height:1.6">
+          <li><b>Verified:</b> p &lt; 0.05, in the right direction</li>
+          <li><b>Monitoring:</b> needs ≥ 8 post-training sessions</li>
+          <li><b>Escalate:</b> 15 sessions, no improvement → coach</li>
+          <li><b>Supervisor approval</b> starts monitoring, never Verified</li>
+        </ul>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px">
+      <p style="align-self:start; font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:2px; color:#A9B0BA; padding:8px 18px; border:2px dashed #6B7480; border-radius:999px">SEEDED SYNTHETIC HISTORY</p>
+      <div style="background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:16px 22px; display:flex; flex-direction:row; align-items:center; gap:16px">
+        <div style="width:230px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700">Ravi</h3><p style="font-size:24px; color:#A9B0BA">Fuel efficiency</p></div>
+        <div style="flex:1"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">26.7% → 80.0%</p><p style="font-size:24px; color:#A9B0BA">p &lt; 0.001</p></div>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; color:#2FB463; padding:6px 14px; border:2px solid #2FB463; border-radius:999px">VERIFIED</p>
+      </div>
+      <div style="background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:16px 22px; display:flex; flex-direction:row; align-items:center; gap:16px">
+        <div style="width:230px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700">Anita</h3><p style="font-size:24px; color:#A9B0BA">Safety discipline</p></div>
+        <div style="flex:1"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">60.0% → 93.3%</p><p style="font-size:24px; color:#A9B0BA">p = 0.002</p></div>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; color:#2FB463; padding:6px 14px; border:2px solid #2FB463; border-radius:999px">VERIFIED</p>
+      </div>
+      <div style="background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:16px 22px; display:flex; flex-direction:row; align-items:center; gap:16px">
+        <div style="width:230px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700">Priya</h3><p style="font-size:24px; color:#A9B0BA">Fuel efficiency</p></div>
+        <div style="flex:1"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">30.0% → 20.0%</p><p style="font-size:24px; color:#A9B0BA">p = 0.88 · no improvement</p></div>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; color:#FF7A7E; padding:6px 14px; border:2px solid #FF7A7E; border-radius:999px">ESCALATE</p>
+      </div>
+      <p style="font-size:24px; line-height:1.4; color:#D8D5CB">No control group, so this is before/after evidence, <b>not proof of causality</b>. A training completed today stays at Monitoring 0/8: live sessions aren't saved in this prototype.</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">% = share of sessions meeting the standard · last 30 before vs first 30 after training</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">09 / 15</p>
+  </div>
+  <aside>SAY (55 s): "Here's how verification works. We take the operator's 30 sessions before the training and up to 30 after. Two one-sided tests: Fisher's exact test asks whether the share of sessions meeting the standard went up; Mann–Whitney asks whether the behaviour metric itself, say idle share, moved the right way. Verified means p below 0.05 in the right direction. We need at least eight sessions after training before judging; before that it's 'monitoring'. After 15 sessions with no improvement, it escalates to an instructor. On our seeded synthetic history: Ravi's fuel efficiency went from 27% to 80% of sessions meeting the standard, verified. Anita's safety discipline, 60 to 93%, verified. Priya's fuel training didn't change anything, so the system escalates her to coaching instead of claiming success. To be clear: these effects were seeded in synthetic data, and with no control group this is before/after evidence, not causality."
+
+KNOW: Ravi idle share 26.6% → 15.5% (MW p ≈ 6e-7; Fisher p ≈ 3.6e-5). Anita unbuckled 33% → 0% (MW p ≈ 0.0003). Priya idle 26.7% → 24.2% (MW p ≈ 0.30). Why Fisher: small counts (8–30), where chi-square is unreliable. Why Mann–Whitney: skewed metrics, no normality assumption. No multiple-testing correction.
+!! Priya's exact % depends on the day operator.db is created (e.g. 23.3% → 30.0%, p = 0.39 for a Thursday reset). The verdict is always ESCALATE. Check My Skill Profile as Priya after the reset and update this row if it differs.
+
+IF ASKED "Does supervisor approval count as verification?": "No. Approval is a human checkpoint that starts monitoring; Verified comes only from these tests."
+
+IF ASKED "Can a training done today be verified?": "Not in this prototype: new live sessions aren't saved, so it honestly stays at Monitoring 0/8. Persisting sessions is the next step."</aside>
+</section>

@@ -1,0 +1,33 @@
+<section id="b-demo" data-transition="fade" style="background:#181B20; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">BACKUP · LIVE DEMO PATH</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">Five-minute live demo: operator Ravi</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px">
+    <div style="background:#23272E; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">1 · Log in</p><p style="font-size:24px; line-height:1.35; color:#D8D5CB">Live Cab locked → tick 8/8 → unlocks</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">2 · Trigger alerts</p><p style="font-size:24px; line-height:1.35; color:#D8D5CB">Worker approaching + steep slope → CRITICAL, log = 2</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">3 · Ask Assistant</p><p style="font-size:24px; line-height:1.35; color:#D8D5CB">Why the warning? → What should I do? → Which training?</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">4 · My Day</p><p style="font-size:24px; line-height:1.35; color:#D8D5CB">Weather → Rainy: ETAs rise · open “Why this estimate?”</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">5 · Machine Insights</p><p style="font-size:24px; line-height:1.35; color:#D8D5CB">Inspect a flagged EXC001 session → evidence</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">6 · Skill Profile</p><p style="font-size:24px; line-height:1.35; color:#D8D5CB">Terrain 31/100 gap · fuel loop verified (seeded)</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">7 · Training Hub</p><p style="font-size:24px; line-height:1.35; color:#D8D5CB">42 s lesson → quiz (2nd option ×3) → Monitoring 0/8</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">8 · End shift</p><p style="font-size:24px; line-height:1.35; color:#D8D5CB">Report → download → log out</p></div>
+    <div style="background:#181B20; border:2px dashed #6B7480; border-radius:12px; padding:18px 22px; display:flex; flex-direction:column; gap:6px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#D8D5CB">Optional · Supervisor</p><p style="font-size:24px; line-height:1.35; color:#A9B0BA">Log out → Supervisor → review Ravi → approve → Monitoring 0/8</p></div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">Before: reset operator.db on a weekday · launch · wait about 30 s · keep the server window open</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">B4</p>
+  </div>
+  <aside>RUN SHEET (about 5 min). Before: stop the app, delete operator.db, relaunch with the .bat on the presentation day (a weekday: a Sat/Sun reset changes the dataset to 1,574 sessions). Wait about 30 s for the first load. Dark theme, sidebar defaults (Sunny, 34 °C), all demo toggles off.
+
+1. Log in as Ravi (OP1001). Optionally submit 5/8 first to show it stays LOCKED, then 8/8.
+2. Sidebar → Demo controls → "Worker approaching", then "Machine on steep slope". Open the Alert log: exactly 2 entries while both stay active.
+3. Ask Assistant, in order: "Why is the machine warning me?" → "What should I do?" → "What training should I take?" → "What happens after training?". Use exactly these; the router is keyword-based.
+4. My Day → sidebar Weather = Rainy → ETAs change → "Why this estimate?".
+5. Machine Insights → "Inspect a flagged session" → evidence table → validation expander (recall on synthetic labels).
+6. My Skill Profile → terrain 31/100 with evidence; fuel loop Verified (label: seeded history).
+7. Training Hub → Recommended now → Open lesson → play the 42 s MP4 (its title card says "2-minute": ignore or mention it) → answer the 2nd option on all 3 → Submit → loop shows NEW · Monitoring 0/8.
+8. End shift & report → Download → Log out.
+Optional (after step 7): End shift → Log out → Select role: Supervisor → Open Supervisor Console → Training Reviews → Review (Ravi, terrain) → Approved → APPROVE & START MONITORING → Log out → Ravi → My Skill Profile shows SUPERVISOR APPROVED + Monitoring 0/8 (never Verified). Coaching & Bookings also lists Priya's statistical escalation.
+Optional: log in as Priya (OP1004) → My Skill Profile → fuel loop "escalate: coaching". Check her percentages match slide 9.</aside>
+</section>

@@ -1,0 +1,48 @@
+<section id="tasktime" data-transition="fade" style="background:#111316; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">05 · TASK-TIME INTELLIGENCE</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">From planner estimates to data-driven ETAs</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:48px">
+    <div style="width:900px; display:flex; flex-direction:column; gap:26px">
+      <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; letter-spacing:2px; color:#A9B0BA">MEAN ABSOLUTE ERROR · 311 HELD-OUT LATER SESSIONS</p>
+      <div style="display:flex; flex-direction:column; gap:14px">
+        <div style="display:flex; flex-direction:row; align-items:center; gap:16px">
+          <p style="width:150px; font-size:24px; color:#A9B0BA">Planner</p>
+          <div style="width:560px; height:56px; background:#4A515C; border-radius:6px"></div>
+          <p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">24.31 min</p>
+        </div>
+        <div style="display:flex; flex-direction:row; align-items:center; gap:16px">
+          <p style="width:150px; font-size:24px; color:#FFCD11"><b>Our model</b></p>
+          <div style="width:283px; height:56px; background:#FFCD11; border-radius:6px"></div>
+          <p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700; color:#FFCD11">12.27 min</p>
+        </div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700; line-height:1.15"><span style="color:#FFCD11">49.5% lower MAE</span> than the planner</p>
+        <p style="font-size:24px; line-height:1.4; color:#A9B0BA">on our held-out <b>synthetic</b> evaluation · bootstrap 95% CI 43.5–54.9% · 40–55% across 5 generator seeds</p>
+      </div>
+      <div style="display:flex; flex-direction:row; gap:16px">
+        <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:18px 20px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">42.4% <span style="color:#8E96A1">vs 14.8%</span></p><p style="font-size:24px; color:#A9B0BA">tasks within ±10% of actual</p></div>
+        <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:18px 20px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">16.1% <span style="color:#8E96A1">vs 28.7%</span></p><p style="font-size:24px; color:#A9B0BA">MAPE, model vs planner</p></div>
+        <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:18px 20px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">1,238 → 311</p><p style="font-size:24px; color:#A9B0BA">train → later test (temporal)</p></div>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:16px">
+      <img src="/_blob/057ddbffc4ad99f763bae23173732635" alt="App screenshot: Task Time Estimator header with Model MAE 12.3 min, Planner MAE 24.3 min, MAE reduction 49.5% with 95% CI 43.5% to 54.9%, and a what-if prediction form" style="width:716px; height:429px; object-fit:contain; border:1px solid #343A43; border-radius:12px">
+      <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; letter-spacing:2px; color:#FFCD11">HISTGRADIENTBOOSTINGREGRESSOR · 10 PRE-TASK INPUTS</p>
+      <p style="font-size:24px; line-height:1.45; color:#D8D5CB">Task type · weather · operator skill · machine age · machine type · soil · temperature · slope · volume · operator's past pace <span style="color:#A9B0BA">(earlier days only)</span></p>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">All inputs are known before the task starts · synthetic data · not a CAT-machine result</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">06 / 15</p>
+  </div>
+  <aside>SAY (50 s): "The planner estimates a task from a standard rate and soil type. Our model, a gradient-boosting regressor, uses ten inputs that are all known before the task starts: task type, weather, skill, machine age and type, soil, temperature, slope, volume, and the operator's own past pace from earlier days. We evaluated it honestly: trained on the first 1,238 sessions and tested on 311 later sessions it had never seen. On that held-out synthetic test set, mean absolute error drops from 24.3 minutes to 12.3: 49.5% lower, with a bootstrap confidence interval of 43.5 to 54.9%, and 40 to 55% across five different generator seeds. 42% of tasks land within ±10% of the actual time, versus 15% for the planner."
+
+SAY IT EXACTLY: "49.5% lower MAE than the planner on our held-out synthetic test set." NOT "49.5% more accurate".
+
+KNOW: Temporal split = first 80% of days train (10 Jul – 7 Sep), last 20% test (8 – 22 Sep) for a DB created 23 Sep; dates shift with the reset day. Task-type-median baseline MAE 30.70 min. Oracle (generator's own observable formula) 10.21 min, so the rest is unobservable noise. Bias: model −1.7 min, planner −24.0 min. Hyperparameters: max_iter 300, lr 0.06, min_samples_leaf 20. Global importance: volume 40.5%, task type 38.4%, soil 10.3%. Explanations are substitution-based and indicative, not causal. No per-prediction uncertainty: one global ±12 min.
+
+IF ASKED "How do you prevent leakage?": "Only pre-task inputs; no idle, fuel, cycles or alerts. Past pace uses strictly earlier days. Temporal split. Unit tests check all three."</aside>
+</section>

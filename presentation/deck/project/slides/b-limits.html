@@ -1,0 +1,25 @@
+<section id="b-limits" data-transition="fade" style="background:#181B20; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">BACKUP · HONEST ENGINEERING</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">Known limitations</h2>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:16px">
+    <div style="background:#23272E; border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:8px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">No real telemetry</h3><p style="font-size:24px; line-height:1.4; color:#D8D5CB">Live readings come from a simulator.</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:8px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">No causal claim</h3><p style="font-size:24px; line-height:1.4; color:#D8D5CB">Before/after evidence without a control group.</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:8px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">No physical interlock</h3><p style="font-size:24px; line-height:1.4; color:#D8D5CB">The lock exists only in the app.</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:8px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">No live anomaly detection</h3><p style="font-size:24px; line-height:1.4; color:#D8D5CB">The detector runs on history at startup.</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:8px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">No retraining</h3><p style="font-size:24px; line-height:1.4; color:#D8D5CB">Models train once when the server starts.</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:8px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">No per-task uncertainty</h3><p style="font-size:24px; line-height:1.4; color:#D8D5CB">Only a global ±12 min typical error.</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:8px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">New training can't be verified yet</h3><p style="font-size:24px; line-height:1.4; color:#D8D5CB">Live sessions aren't saved, so it stays at Monitoring 0/8.</p></div>
+    <div style="background:#23272E; border-radius:12px; padding:20px 22px; display:flex; flex-direction:column; gap:8px"><h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">Weak on speed-only events</h3><p style="font-size:24px; line-height:1.4; color:#D8D5CB">13.6% recall on injected speed spikes.</p></div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">Also: prototype roles without authentication · keyword-based assistant · synthetic evaluation only</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">B3</p>
+  </div>
+  <aside>USE WHEN asked "What doesn't work?" or "What are the weaknesses?". Answer calmly: naming limits is a strength.
+
+SAY: "Everything on this slide is deliberate scope, not a hidden bug. The one I'd fix first is saving live sessions: that's what lets the loop verify a training done today."
+
+MORE IF PUSHED: No login, and Streamlit listens on all network interfaces. Today's task list is generated once per database (reset on presentation day). The fatigue indicator uses demo sliders for shift hours and isn't medical. The assistant is keyword-based: unusual phrasings can land in the wrong intent. In Light mode, data tables stay dark. The anomaly one-line reason and evidence table can highlight different signals.</aside>
+</section>

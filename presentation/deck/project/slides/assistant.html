@@ -1,0 +1,33 @@
+<section id="assistant" data-transition="fade" style="background:#111316; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:row; gap:48px; align-items:start">
+  <div style="width:640px; display:flex; flex-direction:column; gap:22px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">11 · ASSISTANT</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">Ask the system in plain language</h2>
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:44px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">1</p><p style="font-size:24px">Operator asks a question</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:44px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">2</p><p style="font-size:24px">Rule-based intent router + follow-up context</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:44px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">3</p><p style="font-size:24px">Facts retrieved from the app's own data</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:44px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#8E96A1">4</p><p style="font-size:24px; color:#A9B0BA">Optional: Claude rephrases (only with a key)</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:44px; font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; color:#FFCD11">5</p><p style="font-size:24px">Answer + action button (e.g. open lesson)</p></div>
+    </div>
+    <div style="display:flex; flex-direction:row; flex-wrap:wrap; gap:10px">
+      <p style="font-size:24px; padding:8px 16px; background:#1F2329; border:1px solid #343A43; border-radius:999px">“How long will my next task take?”</p>
+      <p style="font-size:24px; padding:8px 16px; background:#1F2329; border:1px solid #343A43; border-radius:999px">“Why was this session flagged?”</p>
+      <p style="font-size:24px; padding:8px 16px; background:#1F2329; border:1px solid #343A43; border-radius:999px">“What should I do about this alert?”</p>
+      <p style="font-size:24px; padding:8px 16px; background:#1F2329; border:1px solid #343A43; border-radius:999px">“What should I improve?”</p>
+    </div>
+  </div>
+  <div style="flex:1; display:flex; flex-direction:column; gap:16px">
+    <img src="/_blob/8efc003794ee108701db589a7bacde90" alt="App screenshot: assistant conversation. 'Why am I getting this warning?' is answered with the proximity and tilt evidence, 'What should I do?' with the actions, and 'What training should I take?' with the 42 sec sloped-terrain lesson because Terrain handling is 31/100, plus a button to open it" style="width:976px; height:635px; object-fit:contain; border:1px solid #343A43; border-radius:12px">
+    <p style="font-size:24px; line-height:1.4; color:#D8D5CB"><b>Works offline.</b> Claude never invents machine readings, safety decisions, anomaly results or training outcomes.</p>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">App screenshot · offline mode, no API key</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">12 / 15</p>
+  </div>
+  <aside>SAY (40 s): "Operators shouldn't have to hunt through screens, so they can just ask. This screenshot is fully offline, no API key. 'Why am I getting this warning?' gets the live evidence; the follow-up 'What should I do?' understands we're still talking about the alert and lists the actions; 'What training should I take?' recommends the 42-second slope lesson because terrain handling is 31 out of 100, with a button that opens it. Under the hood it's a rule-based intent router: it decides what you're asking and retrieves facts from the app. If a Claude key is configured, Claude only rephrases those facts into more natural language. It never makes the decision."
+
+KNOW: 18-step priority router (help, loop, shift, machine, live telemetry, task ID, safety, anomaly, ETA, schedule, lesson, training, skills, idle, conditions, follow-up, clarification, out-of-scope). Follow-up context stores topic / task / competency / anomaly. Unclear follow-up → "Do you mean the current safety alert, your next task, a flagged session or your skill profile?" Out of scope → "I can help with your machine, safety alerts, tasks, anomalies, skills, training and shift status while offline." 25 automated assistant/UI checks, including the Claude-unavailable fallback.
+CAREFUL: it's keyword-based, not NLU. "How am I performing?" is NOT understood (out-of-scope answer). In a live demo, stick to tested phrasings.
+
+IF ASKED "Why not let the LLM answer directly?": "Safety and training facts must be exact and auditable. The LLM gets only retrieved facts and a strict rephrase-only prompt, and the offline answer always exists as a fallback."</aside>
+</section>

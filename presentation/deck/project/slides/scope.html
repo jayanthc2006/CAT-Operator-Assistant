@@ -1,0 +1,58 @@
+<section id="scope" data-transition="fade" style="background:#111316; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">13 · WHAT IS REAL VS SIMULATED</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">Prototype scope, clearly defined</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:20px; align-items:stretch">
+    <div style="flex:1.1; background:#1F2329; border-top:6px solid #FFCD11; border-radius:12px; padding:22px 26px; display:flex; flex-direction:column; gap:12px">
+      <h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; letter-spacing:2px; color:#FFCD11">IMPLEMENTED &amp; TESTED</h3>
+      <ul style="font-size:24px; line-height:1.5">
+        <li>Safety rules &amp; alert logic</li>
+        <li>Edge-triggered event log</li>
+        <li>Pre-start checklist gate (in app)</li>
+        <li>Task-time ML model</li>
+        <li>Anomaly detector + evidence</li>
+        <li>Competency scoring</li>
+        <li>Statistical verification</li>
+        <li>Closed training loop</li>
+        <li>Offline assistant</li>
+        <li>SQLite persistence</li>
+        <li>Operator HMI + Supervisor Console</li>
+        <li>160 automated checks</li>
+      </ul>
+    </div>
+    <div style="flex:1; background:#181B20; border:2px dashed #6B7480; border-radius:12px; padding:22px 26px; display:flex; flex-direction:column; gap:12px">
+      <h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; letter-spacing:2px; color:#D8D5CB">◌ SIMULATED / SYNTHETIC</h3>
+      <ul style="font-size:24px; line-height:1.5; color:#D8D5CB">
+        <li>Historical sessions (1,549)</li>
+        <li>Live telemetry (simulator)</li>
+        <li>Past training effects (seeded)</li>
+        <li>Today's task list</li>
+        <li>Service history</li>
+      </ul>
+      <p style="font-size:24px; line-height:1.4; color:#A9B0BA">Labelled in the app: “SIMULATED TELEMETRY”, “SEEDED HISTORY · synthetic”.</p>
+    </div>
+    <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:12px; padding:22px 26px; display:flex; flex-direction:column; gap:12px">
+      <h3 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:32px; font-weight:700; letter-spacing:2px">PATH TO PRODUCTION</h3>
+      <ul style="font-size:24px; line-height:1.5; color:#D8D5CB">
+        <li>Real telemetry (CAN / J1939)</li>
+        <li>Physical machine interlock</li>
+        <li>Supervisor notifications</li>
+        <li>Fleet backend</li>
+        <li>Authentication / real RBAC</li>
+        <li>Live-session persistence</li>
+        <li>Model retraining</li>
+        <li>LMS integration</li>
+      </ul>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">The logic is real; the data feeding it is simulated or synthetic</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">14 / 15</p>
+  </div>
+  <aside>SAY (35 s): "We want to be precise about scope. On the left is what's genuinely implemented and tested: the rules, the models, the statistics, the loop, the assistant and the storage. In the middle is what's simulated or synthetic: historical sessions, live telemetry, the past training effects, today's task list and service history. The app labels these on screen. On the right is the production path: real telemetry, a certified interlock, notifications, a fleet backend, authentication, saving live sessions, retraining and LMS integration. These are the clear boundaries of a hackathon prototype, not hidden gaps."
+
+KNOW: Why live sessions matter: until they're saved into the sessions table, a training done today can't be verified (stays Monitoring 0/8). Security today: no login, and Streamlit listens on all network interfaces by default; production would add authentication and bind to localhost.
+
+IF ASKED "What's the single biggest gap?": "Live-session persistence. It's what lets the loop verify new training, and it's the first thing we'd build next."</aside>
+</section>

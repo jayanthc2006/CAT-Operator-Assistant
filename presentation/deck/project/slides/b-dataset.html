@@ -1,0 +1,47 @@
+<section id="b-dataset" data-transition="fade" style="background:#181B20; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <div style="display:flex; flex-direction:row; justify-content:space-between; align-items:end">
+    <div style="display:flex; flex-direction:column; gap:12px">
+      <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">BACKUP · DATASET</p>
+      <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">The synthetic dataset</h2>
+    </div>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:2px; color:#D8D5CB; padding:8px 18px; border:2px dashed #6B7480; border-radius:999px">◌ SYNTHETIC · NOT REAL CAT DATA</p>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:16px">
+    <div style="flex:1; background:#23272E; border-radius:12px; padding:18px 22px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700; color:#FFCD11">1,549</p><p style="font-size:24px; color:#A9B0BA">work sessions</p></div>
+    <div style="flex:1; background:#23272E; border-radius:12px; padding:18px 22px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">6 · 6</p><p style="font-size:24px; color:#A9B0BA">operators · machines</p></div>
+    <div style="flex:1; background:#23272E; border-radius:12px; padding:18px 22px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">64</p><p style="font-size:24px; color:#A9B0BA">working days</p></div>
+    <div style="flex:1.4; background:#23272E; border-radius:12px; padding:18px 22px"><p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700">10 Jul – 22 Sep</p><p style="font-size:24px; color:#A9B0BA">2026 (moves with the reset day)</p></div>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:48px">
+    <div style="width:760px; display:flex; flex-direction:column; gap:10px">
+      <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; letter-spacing:3px; color:#A9B0BA">SESSIONS BY TASK TYPE</p>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:230px; font-size:24px">Grading</p><div style="width:420px; height:26px; background:#FFCD11; border-radius:4px"></div><p style="font-size:24px">393</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:230px; font-size:24px">Earth Excavation</p><div style="width:412px; height:26px; background:#FFCD11; border-radius:4px"></div><p style="font-size:24px">386</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:230px; font-size:24px">Material Loading</p><div style="width:278px; height:26px; background:#FFCD11; border-radius:4px"></div><p style="font-size:24px">260</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:230px; font-size:24px">Haulage</p><div style="width:274px; height:26px; background:#FFCD11; border-radius:4px"></div><p style="font-size:24px">256</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:230px; font-size:24px">Trenching</p><div style="width:137px; height:26px; background:#FFCD11; border-radius:4px"></div><p style="font-size:24px">128</p></div>
+      <div style="display:flex; flex-direction:row; align-items:center; gap:14px"><p style="width:230px; font-size:24px">Demolition</p><div style="width:135px; height:26px; background:#FFCD11; border-radius:4px"></div><p style="font-size:24px">126</p></div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:10px">
+      <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; letter-spacing:3px; color:#A9B0BA">HOW IT'S GENERATED</p>
+      <ul style="font-size:24px; line-height:1.45; color:#D8D5CB">
+        <li>Keeps the organisers' 9 telemetry + 7 task columns</li>
+        <li>Hidden operator traits, never stored or used as inputs</li>
+        <li>Unobserved noise, daily disruption, 5% random delays</li>
+        <li>Injected labels: 60 idle/fuel, 66 speed (validation only)</li>
+        <li>Seeded training effects: Ravi, Anita changed; Priya didn't</li>
+      </ul>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">Generator seed 11 · organisers allowed synthetic data</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">B2</p>
+  </div>
+  <aside>USE WHEN asked "What data did you use?"
+
+SAY: "It's synthetic, which the organisers allowed, but we designed it so the problem isn't trivial. It keeps the organisers' exact columns, adds extra signals, and includes things no model can see: hidden operator pace, machine condition, daily site disruption, about 10% per-task noise and random 15–60 minute delays. That's why the model can't be perfect. We also injected labelled anomalies, only to validate the detector, and seeded two training effects plus one training that deliberately had no effect."
+
+KNOW: 75 calendar days before the database is created, Sundays skipped → 64 working days (65 if the reset is on a Sat/Sun, which gives 1,574 sessions and slightly different metrics: reset on a weekday). Weather days: Sunny 34, Cloudy 11, Rainy 6, Windy 6, Foggy 5, Dusty 2. 36.9% of sessions have a safety alert. Seatbelt unfastened 7.9%. The planner baseline ignores skill, machine age, temperature, slope and pace by design, like a planning sheet.
+
+IF ASKED "How would it work with real CAT data?": "Map telematics fields to the same sessions schema, since the organisers' columns are already the core, retrain, and validate on real history."</aside>
+</section>

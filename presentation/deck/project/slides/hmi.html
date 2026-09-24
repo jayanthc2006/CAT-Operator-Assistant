@@ -1,0 +1,29 @@
+<section id="hmi" data-transition="fade" style="background:#111316; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:row; gap:48px; align-items:start">
+  <div style="width:560px; display:flex; flex-direction:column; gap:24px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">03 · IN-CAB HMI</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">Designed around the operator</h2>
+    <p style="font-size:32px; line-height:1.4"><b>HMI = Human–Machine Interface:</b> the operator-facing screen, intended for inside the cab.</p>
+    <ul style="font-size:24px; line-height:1.55; color:#D8D5CB">
+      <li>Pre-start inspection gate (8/8 checks)</li>
+      <li>Current task + model ETA</li>
+      <li>NORMAL / CAUTION / CRITICAL state</li>
+      <li>Safety alerts with a “Why”</li>
+      <li>360° proximity radar + critical telemetry</li>
+      <li>Fatigue-risk indicator (not medical)</li>
+      <li>Site conditions + one-tap training action</li>
+    </ul>
+  </div>
+  <div style="flex:1; display:flex; flex-direction:column; gap:16px">
+    <img src="/_blob/c3efc0ff1be710f2b1b9e60363bc9b74" alt="App screenshot: Live Cab in CRITICAL state with a STOP banner for a worker 1.6 m away, a rollover-risk banner for 23.1° tilt, the current task card with a 70 min ETA, the proximity radar, and a SIMULATED TELEMETRY chip" style="width:933px; height:690px; object-fit:contain; border:1px solid #343A43; border-radius:12px">
+    <p style="font-size:24px; line-height:1.4; color:#A9B0BA; padding:12px 18px; border:2px dashed #5B6470; border-radius:10px">◌ Prototype: runs locally (Streamlit) on a laptop/tablet with <b>simulated telemetry</b>. Not connected to a CAT machine.</p>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">App screenshot · simulated telemetry, demo controls on</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">04 / 15</p>
+  </div>
+  <aside>SAY (45 s): "HMI means human–machine interface: the screen the operator actually looks at in the cab. This is our Live Cab. Before the shift, the app stays locked until the 8-point walkaround inspection is complete. Then the operator sees one task card with the model's ETA, and one big state: NORMAL, CAUTION or CRITICAL. Here we've triggered two simulated events: a worker 1.6 metres away and a 23-degree tilt. Each red banner says what's wrong, why, and what to do, and the tilt alert links straight to a 42-second slope lesson. Below that: the 360-degree proximity radar, critical telemetry and a fatigue-risk indicator. Note the 'simulated telemetry' chip: this is a prototype on a laptop, not a real machine."
+
+KNOW: Telemetry refreshes every 2 s (Streamlit fragment). Readings come from data.live_reading (simulated). Fatigue-risk indicator = rule-based points for time on shift (>6 h), time since break (>2 h), heat (>32 °C) and alerts this shift; it's an operational indicator, NOT a medical measure. The checklist lock is app-level only.
+
+IF ASKED "Is the machine really locked?": "No: the app gates the Live Cab until the inspection is complete. A physical interlock would have to go through certified machine safety systems; that's on the roadmap."</aside>
+</section>

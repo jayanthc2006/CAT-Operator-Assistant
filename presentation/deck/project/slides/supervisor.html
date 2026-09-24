@@ -1,0 +1,29 @@
+<section id="supervisor" data-transition="fade" style="background:#111316; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:28px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">09 · SUPERVISOR REVIEW</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">A human checkpoint, not a shortcut to “Verified”</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:48px">
+    <div style="width:700px; display:flex; flex-direction:column; gap:12px">
+      <div style="background:#1F2329; border-left:6px solid #A9B0BA; border-radius:12px; padding:14px 20px; display:flex; flex-direction:row; align-items:center; gap:16px"><p style="width:170px; font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; color:#A9B0BA">OPERATOR</p><p style="font-size:24px">Observe → diagnose → train, quiz passed</p></div>
+      <div style="background:#1F2329; border-left:6px solid #FFCD11; border-radius:12px; padding:14px 20px; display:flex; flex-direction:row; align-items:center; gap:16px"><p style="width:170px; font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; color:#FFCD11">SUPERVISOR</p><p style="font-size:24px">Review: approve · retrain · instructor</p></div>
+      <div style="background:#1F2329; border-left:6px solid #4C9AFF; border-radius:12px; padding:14px 20px; display:flex; flex-direction:row; align-items:center; gap:16px"><p style="width:170px; font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; color:#7FB5FF">OPERATOR</p><p style="font-size:24px">Monitoring 0/8 post-training sessions</p></div>
+      <div style="background:#1F2329; border-left:6px solid #2FB463; border-radius:12px; padding:14px 20px; display:flex; flex-direction:row; align-items:center; gap:16px"><p style="width:170px; font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; color:#2FB463">SYSTEM</p><p style="font-size:24px">Statistics → verified · monitor · escalate</p></div>
+      <p style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:44px; font-weight:700; line-height:1.15; padding:10px 0px 0px 0px">Supervisor Approved <span style="color:#FFCD11">≠</span> Statistically Verified</p>
+      <p style="font-size:24px; line-height:1.4; color:#D8D5CB">Approval only starts monitoring. Only the before/after tests can mark a result Verified.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px">
+      <img src="/_blob/38dd67f8ca22347f61d4030c3f07cd27" alt="App screenshot: Supervisor Dashboard with 0 pending reviews, 1 monitoring, 2 verified outcomes and 1 coaching recommendation; Ravi's sloped-terrain training shows Supervisor approved and Monitoring 0/8, while the two seeded loops show Verified · statistical" style="width:780px; height:567px; object-fit:contain; border:1px solid #343A43; border-radius:12px">
+      <p style="font-size:24px; line-height:1.4; color:#A9B0BA; padding:10px 16px; border:2px dashed #5B6470; border-radius:10px">◌ Prototype role selection · authentication/RBAC not implemented</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">App screenshot · Supervisor role · review decisions are stored append-only</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">10 / 15</p>
+  </div>
+  <aside>SAY (45 s): "Real sites have supervisors, so we added a separate supervisor role. When an operator passes a lesson, it doesn't go straight to monitoring: it waits for supervisor review. The supervisor sees why the training was assigned, the quiz result, and decides: approve, request retraining, or recommend an instructor, which uses our booking system. The key point: supervisor approval is NOT verification. Approval only starts monitoring. Here Ravi's slope training is 'supervisor approved', 'monitoring 0 of 8', while the two seeded loops are 'verified, statistical'. Only the before/after tests can mark a result verified. The role picker is a prototype: there's no real authentication yet."
+
+KNOW: Roles are chosen at login (Operator default). Operator sidebar has no supervisor pages; the supervisor interface runs isolated from operator code. Supervisor pages: Dashboard, Training Reviews, Operators, Outcomes, Coaching & Bookings. Review panel: operator, why assigned (score + standard + evidence), lesson, quiz score, date, assessment (Approved / Needs reinforcement) + note. Retraining keeps the gap open and the score unchanged; the retake becomes a new case. Instructor → existing bookings table. Seeded Ravi/Anita/Priya trainings pre-date review ("seeded history"). Decisions are append-only in supervisor_reviews; the latest decision wins. New training stays at Monitoring 0/8: live sessions aren't saved, nothing is faked. 51 end-to-end + 13 unit tests cover this.
+
+IF ASKED "Can an operator approve their own training?": "In this prototype anyone can pick the Supervisor role at login: it's clearly labelled, and real authentication is on the roadmap. What we did enforce is that the operator's own screens have no supervisor controls."</aside>
+</section>

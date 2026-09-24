@@ -1,0 +1,27 @@
+<section id="b-deepdive" data-transition="fade" style="background:#181B20; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:28px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">BACKUP · TECHNICAL DEEP DIVE</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">Methods behind the numbers</h2>
+  </div>
+  <table style="font-size:24px; color:#F1EFE8">
+    <tr style="background:#23272E"><th style="width:19%">Component</th><th style="width:27%">Method</th><th style="width:54%">Key details</th></tr>
+    <tr><td><b>Task-time model</b></td><td>HistGradientBoostingRegressor + one-hot</td><td>10 pre-task inputs · max_iter 300 · lr 0.06 · min_samples_leaf 20 · missing pace handled natively</td></tr>
+    <tr><td><b>Validation</b></td><td>Temporal split + bootstrap</td><td>First 80% of days train (1,238), last 20% test (311) · 1,000-resample 95% CI · seeds 11–15: 40–55%</td></tr>
+    <tr><td><b>Benchmark</b></td><td>GroupKFold(5) out-of-fold</td><td>Folds grouped by day · fair expected time for the Task-execution competency</td></tr>
+    <tr><td><b>Leakage control</b></td><td>Pre-task inputs only</td><td>Operator pace from strictly earlier days · no idle, fuel, cycles, alerts or actual time</td></tr>
+    <tr><td><b>Anomaly detector</b></td><td>IsolationForest</td><td>Contamination 5% · robust z (median/MAD) within machine type · 6 signals · runs at startup</td></tr>
+    <tr><td><b>Competencies</b></td><td>Written standards</td><td>Score = % of last 30 applicable sessions meeting the standard (≥ 8 needed) · gap below 70</td></tr>
+    <tr><td><b>Verification</b></td><td>Fisher exact + Mann–Whitney U</td><td>One-sided · α 0.05 · ≥ 8 post-training sessions · escalate after 15 · 30 before vs up to 30 after</td></tr>
+  </table>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">scikit-learn 1.9.1 · SciPy 1.17.1 · Streamlit 1.64 · Python 3.11</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">B1</p>
+  </div>
+  <aside>USE WHEN a technical judge digs in. Walk the rows top to bottom.
+
+EXTRA NUMBERS: Model MAE 12.27, planner 24.31, task-type median 30.70, oracle (generator formula) 10.21 min. OOF MAE 12.03. Bias −1.7 vs −24.0 min. Permutation importance: volume 40.5%, task type 38.4%, soil 10.3%, skill 5.4%, weather 2.7%. Detector: 78 flags; recall 80% (48/60) idle/fuel; precision 61.5%; speed recall 13.6% (9/66); seeds 11–15 recall 69–80%.
+
+WHY THESE CHOICES: Gradient boosting is strong on small mixed tabular data and handles missing pace. Isolation Forest is unsupervised, since real incidents are rarely labelled. Fisher suits small counts. Mann–Whitney suits skewed metrics without normality.
+
+LIMITS: fixed hyperparameters (not tuned); no per-prediction intervals; no retraining; the detector always flags about 5%; no multiple-testing correction.</aside>
+</section>

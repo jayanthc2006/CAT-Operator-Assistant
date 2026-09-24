@@ -1,0 +1,53 @@
+<section id="safety" data-transition="fade" style="background:#111316; color:#F1EFE8; font-family:'IBM Plex Sans', Arial, sans-serif; padding:128px 128px 160px; display:flex; flex-direction:column; gap:32px">
+  <div style="display:flex; flex-direction:column; gap:12px">
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; font-weight:600; letter-spacing:4px; color:#FFCD11">04 · SAFETY SYSTEM</p>
+    <h2 style="font-family:'Barlow Condensed', 'Arial Narrow', sans-serif; font-size:72px; font-weight:700; line-height:1.05">Safety alerts that explain what to do</h2>
+  </div>
+  <div style="display:flex; flex-direction:row; align-items:center; gap:10px">
+    <div style="flex:1; background:#181B20; border:1px dashed #5B6470; border-radius:10px; padding:14px 16px"><p style="font-size:24px; font-weight:600; text-align:center">Simulated telemetry</p></div>
+    <x-shape kind="arrow-right" style="width:28px; height:16px; background:#6B7480"></x-shape>
+    <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:10px; padding:14px 16px"><p style="font-size:24px; font-weight:600; text-align:center">Deterministic rules</p></div>
+    <x-shape kind="arrow-right" style="width:28px; height:16px; background:#6B7480"></x-shape>
+    <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:10px; padding:14px 16px"><p style="font-size:24px; font-weight:600; text-align:center">Severity</p></div>
+    <x-shape kind="arrow-right" style="width:28px; height:16px; background:#6B7480"></x-shape>
+    <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:10px; padding:14px 16px"><p style="font-size:24px; font-weight:600; text-align:center">“Why” explanation</p></div>
+    <x-shape kind="arrow-right" style="width:28px; height:16px; background:#6B7480"></x-shape>
+    <div style="flex:1; background:#1F2329; border:1px solid #343A43; border-radius:10px; padding:14px 16px"><p style="font-size:24px; font-weight:600; text-align:center">Operator action</p></div>
+    <x-shape kind="arrow-right" style="width:28px; height:16px; background:#FFCD11"></x-shape>
+    <div style="flex:1; background:#FFCD11; border-radius:10px; padding:14px 16px"><p style="font-size:24px; font-weight:600; text-align:center; color:#111316">Event log</p></div>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:40px">
+    <div style="width:940px; display:flex; flex-direction:column; gap:20px">
+      <table style="font-size:24px; color:#F1EFE8">
+        <tr style="background:#1F2329"><th style="width:24%">Alert</th><th style="width:48%">Trigger → action</th><th style="width:28%">Level</th></tr>
+        <tr><td><b>Seatbelt</b></td><td>Unfastened while the engine runs → buckle up</td><td style="color:#FF7A7E">CRITICAL</td></tr>
+        <tr><td><b>Proximity</b></td><td>&lt; 3 m → STOP · &lt; 6 m → caution</td><td style="color:#FF7A7E">CRITICAL / CAUTION</td></tr>
+        <tr><td><b>Tilt / rollover</b></td><td>&gt; 15° → lower bucket, level ground</td><td style="color:#FF7A7E">CRITICAL</td></tr>
+        <tr><td><b>Overspeed</b></td><td>&gt; site limit (excavator 6 km/h)</td><td style="color:#F5A524">CAUTION</td></tr>
+        <tr><td><b>Engine temp</b></td><td>&gt; 98 °C → reduce load, let it cool</td><td style="color:#F5A524">CAUTION</td></tr>
+      </table>
+      <p style="font-size:24px; line-height:1.4; color:#F5A524; padding:12px 18px; border:2px solid #F5A524; border-radius:10px">App-level interlock only: the prototype does not physically lock hydraulics.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:14px">
+      <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; letter-spacing:3px; color:#FFCD11">EDGE-TRIGGERED EVENT LOG</p>
+      <div style="background:#181B20; border:1px solid #343A43; border-radius:12px; padding:16px 20px; display:flex; flex-direction:column; gap:4px">
+        <p style="font-size:24px; color:#A9B0BA">Naive: every 2 s refresh</p>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#6B7480">10:00:00 PROXIMITY<br>10:00:02 PROXIMITY<br>10:00:04 PROXIMITY<br>10:00:06 PROXIMITY …</p>
+      </div>
+      <div style="background:#1F2329; border:2px solid #FFCD11; border-radius:12px; padding:16px 20px; display:flex; flex-direction:column; gap:4px">
+        <p style="font-size:24px; color:#FFCD11"><b>Ours: once per event</b></p>
+        <p style="font-family:'IBM Plex Mono', monospace; font-size:24px">10:00:00 PROXIMITY · starts</p>
+        <p style="font-size:24px; color:#A9B0BA">Logged again only after it clears and returns.</p>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute; left:128px; right:128px; bottom:64px; display:flex; flex-direction:row; justify-content:space-between; align-items:center">
+    <p style="font-size:24px; color:#8E96A1">Every alert shows a “Why:” line with the value and the threshold</p>
+    <p style="font-family:'IBM Plex Mono', monospace; font-size:24px; color:#8E96A1">05 / 15</p>
+  </div>
+  <aside>SAY (45 s): "Safety is deliberately not machine learning. Readings go through deterministic rules, because stop/go decisions must be predictable and testable. Five live alerts: seatbelt, proximity, tilt, overspeed and engine temperature. Each one has a severity, a 'why' line with the actual value and threshold, and an action. One engineering detail we're proud of: the screen refreshes every two seconds, and a naive design logs the same alert every refresh. We found that in stress testing: the log went from 14 to 172 entries in a minute. Now we log on the transition, once when a condition starts, and again only if it clears and comes back. Worker plus tilt held for a minute gives exactly two entries."
+
+KNOW: Thresholds: seatbelt open = red; proximity < 3 m red STOP, 3–6 m amber; tilt > 15° red; speed > site limit amber (Excavator 6, Wheel Loader 25, Dozer 10, Artic Truck 40, Grader 30 km/h); engine coolant > 98 °C amber. In normal simulated operation no alert fires (objects ≥ 7 m, tilt ≈ 4°). Tests: 13 alert-log checks (worker held → 1, tilt held → 1, clear + re-enter → 2, worker + tilt → 2). No live overload alert (overload exists only in history).
+
+IF ASKED "What about false alarms?": "In normal simulated operation nothing fires, there are caution and stop bands, and each event logs once. On real sensors we'd add debounce and sensor-fault checks."</aside>
+</section>

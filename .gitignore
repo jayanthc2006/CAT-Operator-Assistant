@@ -1,0 +1,9 @@
+.python311/
+.venv/
+.venv.broken/
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+wheels/
+operator - Copy.db
+.DS_Store
